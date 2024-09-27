@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Advanced functions </title>
+</head>
+<body>
+  <!-- .addEventListener():
+        it let us run some code when we interact with selected html elements, it works just like "onclick".
+        But we access the html element from javascript using DOM inorder to easy reading, and then we use ".addEventListner()" to run some codes when any event happens.
+  -->
+  <button onclick="">Click</button>  <!-- we can replace this code with below one. -->
+  
+  <button class="js-button">Click</button>      <!-- now we gonna access this in scripts using DOM and add an event listener -->
+
+
+  <script>
+
+    /* here we select the element and saved it to the variable. so we can use it later multiple times.
+      ".addEventListener()" goes with 2 parameters, first one is the event and second one is the function which will run when the given event happens. */
+
+      
+    const buttonElement = document.querySelector('.js-button');
+    const eventListener = () => {             
+      console.log('thats good! ')
+    }
+    /* you can also create the function as regularly you do, and call the function in ".addEventListener()", that will work too.
+
+    function eventListener() {
+      console.log('thats good! ')
+    }
+      but to call this function inside ".addEventListener()", you've to create a function first and the call the "eventListener()" inside it. like below eg:
+  
+
+    buttonElement.addEventListener('click', () => { 
+      eventListener();
+    });
+ */
+   
+    buttonElement.addEventListener('click', () => {
+      console.log('wonderful !')
+    });
+
+
+    
+    /* it let us add multiple event listeners or multiple ".addEventListener()" for the same event and for the same element. eg: */
+    
+    buttonElement.addEventListener('click', () => { 
+      eventListener();
+    }
+  );
+    
+
+
+    /* we can also remove a event listener using ".removeEventListener()", it also goes with 2 parameters. first one is event we want to remove and second one is the function we want to remove, it is necessary to reference the function we wanna remove coz there'll be multiple event listener for one event, so we've to reference the function too for specific removing. 
+    
+    on the function parameter part you cant just copy paste the function, you've to reference the exact same function, for that you can save the function inside a variable or initialise the variable and call it inside.
+    */
+
+    // buttonElement.removeEventListener('event', eventListener());
+
+
+    /* 
+    the best practice is to use ".addEventListener()" instead of "onclick" coz in ".addEventListener()" :
+      1) we can add multiple event listener to the same event and same element.
+      2) we can remove any event listener.
+    
+    */
+
+
+    
+
+
+
+
+
+
+
+
+
+    greeting();
+
+    function greeting()
+    {
+      console.log('hello');
+    }
+
+    /* Functions are also considered as a value. so just like saving a value to a variable we can save a function to a variable*/
+
+    const function1 = function greeting(){
+      console.log('hello2');
+    };
+
+    console.log(function1);
+    console.log(typeof function1);
+
+    /* now we can call the function inside the variable using the variable name */
+
+    function1();
+
+    /* so now we can use the variable name instead of function name, so we can remove the function name inside the variable, and a function without a name is called Anonymous function. */
+    
+    const function2 = function (){
+      console.log('hello3');
+    };
+
+    function2();
+
+    /* now we can also pass a function into another function as parameter, just like we pass a nbr. The function we pass as the parameter is called Callback function or Callback. */
+
+    function run(param) {
+      param();
+    }
+
+    run( function(){    // Callback function.
+      console.log('hello4');  
+    } );
+
+
+    // this built-in function allow us to run a function in the future. Basically it creates a delay before running a function.
+    // it takes 2 parameters, first one is the function we want to run in the future, and the second one is the delay time in millieseconds(1000ms = 1s)
+    setTimeout();
+    setTimeout(function() {
+      console.log('timeout');
+    }, 3000);
+
+
+    // this also an built-in function which also allow us to run a function in the future, but it will keep running after the delay. eg: if we set an function and 3s delay, the function will keep running after every 3s. And just like "setTimeout()" this has also 2 parameters, function and time.
+
+    setInterval(function() {
+      console.log('interval');
+    }, 3000);
+
+    // "setTimeout()" & "setInterval()" are Asynchronous, which means the compiler don't wait to finish the timer so that line of code can execute, the timer will run on the background and the compiler will go to the next line of code, and the compiler will deal with the line of code which have timer when the timer finishes. Defualtly we run code as synchronous(wait for the line of code to be executed inorder to go to the next line), which is line by line execution. Only some functions like above are Asynchronous.
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    // instead of using for or while loop to loop through an array we can use "forEach()" method for easy coding. This is the preffered way.
+    // "forEach()" loop through each value and we can pass a function as parameter for a certain action for each value. And we can get the current value and it's index by using the parameters of the passed function.
+
+    [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ].forEach( function(value, index) {
+
+      console.log(index);
+      console.log(value);
+
+    });
+
+
+    /*
+    continue:
+
+    there's no "continue" statement in "forEach()", so this how we do it. it works just like "continue".
+
+    in here we want to skip the 'wash dishes', and we used "return" statement to jump out of the passed function early and goes to next iteration.
+
+    [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ].forEach( function(value, index) {
+
+      if(value === 'wash dishes') {
+        return;
+      }
+
+      console.log(index);
+      console.log(value);
+
+    });
+
+    */
+
+
+
+
+
+
+
+
+
+
+
+    /*
+      Arrow function :
+      Arrow function is a another way to create a function, it works mostly like a regular function. The differences is we use an arrow "=>" instead of the keyword "function" and it have some shortcuts to reduce the code.
+
+      * if the function have only one parameter, then we can avoid the brackets. (fig 0.1)
+      * if the function have only one line of code, then we can avoid the curly brackets and we can get rid off the "return" statement in below eg (fig 0.2)
+        
+      const regularFunction = function(param, param2)
+      {
+        console.log('jello');
+        return 5;
+      };
+
+      const arrowFunction = (param, param2) => {
+        console.log('hello');
+        return 5;
+      };
+
+      arrowFunction();
+
+      const oneParam = param => {             fig 0.1
+        console.log(param +1);
+      };
+
+      oneParam(2);
+
+      const oneLine = () => return 2 + 3;             fig 0.2
+    */
+
+    // so when we pass a function into another function, it is recommended to use arrow function for easy reading. eg:
+
+    [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ].forEach( (value, index) => {
+
+      if(value === 'wash dishes') {
+        return;
+      }
+
+      console.log(index);
+      console.log(value);
+
+    });
+
+
+
+
+
+
+
+
+
+    /*
+      .filter() :
+        it's an another method for an array to loop through it just like ".forEach()", but this time we can use this method to filter things out.
+        In below eg we are filtering negative values and printing out the positive values only.
+        How does this works ?
+        well, ".filter()" creates a new array and if the given condition for filtering inside the inner function returns true then it'll put the current value to the new array, if it returns false then it won't put the value to the new array.
+        And it'll automatically print out the array or return the filtered array.
+
+        difference b/w ".forEach()" and ".filter()":
+        ".forEach()" don't create and return an array automatically, we've to manually code it.
+        but in ".filter()" it creates and return an array automatically, we just have to give the condition for filtering.
+    */
+
+    console.log([1, -2, 3].filter( (value, index) => {
+      /*if(value >= 0) {
+        return true;
+      }
+      else {
+        return false;
+      }*/
+
+      return value >= 0;      // this is a shortcut, it checks the condition first and it returns the corresponding boolean value and filtering works according to it.
+    }));
+
+
+
+
+
+
+    /*
+      .map():
+        it's an another method for an array to loop through it just like ".forEach()" & ".filter()", but this time we can use it to transform an original array to another array based on the return value.
+        In below eg we are transforming the original array to it's doubled values array.
+        How does this works ?
+        well, ".map()" creates a new array and whatever we return will be added to the new array.
+        In here we are returning the values itself by multiplying by 2.
+    */
+
+    console.log([1, -2, 3].map( (value, index) => {
+      
+      return value *2;
+    }));
+
+    // shortcuted version of the above code: 
+
+    console.log([1, -2, 3].map( value =>  value *2));
+
+    // only one parameter, so we avoided brackets there.
+    // only one line of code, so we avoided curly bracket and return.
+
+  </script>
+</body>
+</html>

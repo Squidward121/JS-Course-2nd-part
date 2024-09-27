@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>variables</title>
+<style>
+ 
+</style>
+</head>
+<body>
+  <h2>cart quantity</h2>
+  <button onclick="
+    console.log(`cart quantity: ${CartQuantity}`);
+  ">Show Quantity</button>
+
+
+  <button onclick="
+    CartQuantity = CartQuantity + 1;
+    // you can also do it like these instead of above for shorting.
+    // CartQuantity += 1;
+    // CartQuantity++;
+    console.log(`cart quantity: ${CartQuantity}`);
+  ">Add to Cart</button>
+
+
+  <button onclick="
+    CartQuantity = CartQuantity + 2;
+    console.log(`cart quantity: ${CartQuantity}`);
+  ">+2</button>
+
+
+  <button onclick="
+    CartQuantity = CartQuantity + 3;
+    console.log(`cart quantity: ${CartQuantity}`);
+  ">+3</button>
+
+
+  <button onclick="
+    CartQuantity = 0;
+    console.log(`cart was Reset`);
+    console.log(`cart quantity: ${CartQuantity}`);
+  ">Reset Quantity</button>
+
+
+  <script>
+    let CartQuantity = 0;
+    
+  </script>
+</body>
+</html>

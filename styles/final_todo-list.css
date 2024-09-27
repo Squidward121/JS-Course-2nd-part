@@ -1,0 +1,36 @@
+body {
+  font-family: Arial;
+}
+
+.todo-1st_grid,
+.todo-2nd_grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  gap: 10px;
+  align-items: center;
+}
+
+.todo-1st_grid{
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+
+.todo-1st_grid *, .delete-btn{
+  padding: 6px;
+  font-size: 15px;
+}
+
+.todo-1st_grid button {
+  color: white;
+  background-color: green;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn{
+  color: white;
+  background-color: rgb(211, 0, 0);
+  border: none;
+  cursor: pointer;
+  padding: 10px 0px;
+}

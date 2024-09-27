@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array and loops</title>
+</head>
+<body>
+  
+
+
+
+  <script>
+    // this is how we create an array in JS.
+    const myArray = [10,20,30];
+    let hisArray = [40,50,60];
+
+    console.log(hisArray[0]);
+    hisArray[0] = 14;
+    console.log(hisArray[0]);
+
+    console.log(Array.isArray(myArray));    // to check if something is array or not. It's an built in object.
+
+
+    // array can store different data types in the same array.
+    [1, 'hello', true, { name: 'socks'}]
+
+    console.log(typeof myArray);    // array is an special type of object in JS, so it've some properties and methods which we can use.
+
+    console.log(myArray.length);    // to check how many values are in the array.
+
+    myArray.push(100);    // to add a new value at the end of the array.
+    myArray.pop(100);     // to remove a value from the array.
+    // it's referencing to the Stack working process.
+
+    myArray.splice(0,1);   //to remove any values from the array based on the index nbr. "pop()" was based on the value.
+    // splice( index we wanna remove, number of values to remove );
+    console.log(myArray);
+
+
+    // Loops :-
+    /*
+    1) for loop
+    2) while loop
+    3) do while loop
+
+    syntaxes are the same as you know.
+
+    so which one should we use ?
+    for vs while:
+
+      if it's a standard loop then use "for".
+      if it's a non-standard loop then use "while".
+
+      non-standard will be like :
+        *when you want one of your variable's scope outside of the loop.
+        *when the loop doesn't use an increment step.
+        
+        eg:
+        
+        let randomNbr = 0;
+        while(randomNbr < 0.5)
+        {
+          randomNbr = Math.random();
+        }
+    */
+
+
+        // looping through array.
+    const todoList = [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ];
+
+    let todoList_no = todoList.length; 
+
+    for(let i = 0; i < todoList_no; i++)
+    {
+      console.log(todoList[i]);
+    }
+
+  </script>
+</body>
+</html>

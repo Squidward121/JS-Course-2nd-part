@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+
+
+  <script>
+    /* Object is a type of value which can group multiple values.
+    Actually you've learned this before, check your C++ book. We've learned this in with "Class" concept, but in here
+    it's a bit different, there's no class in JS, and "Object" act as bit like class in JS, but not completely, but it's the same concept. And object is a thing which comes with OOP.
+    Actually Object is the same concept as Structer/struct in C (for more info check the C language folder). In struct we create struct with a
+    name and inside we create and group some variables or objects. This is for to avoid repetition. if we create something like that we can use it
+    several times. for eg: 
+    if we're going to store the name and age of students in a university we can create two objects as "name" and "age" inside a variable and 
+    use them several times and we just have to create the object just one time, that's the benefit.*/
+
+    // * if we check the data type of variable product it'll show as object.
+
+    // this how to create object :-
+    const product = {
+      // the values on the left are called property, and we use them to access the values:
+      name : 'socks',
+      price : 1090
+    };
+
+    console.log(product);
+    console.log(product.name);
+    console.log(product.price);
+
+    // this is how we access and change the value of a object :
+    product.name = 'kidney';
+    console.log(product.name);
+
+    // and we can create a new object/property to the variabel by :-
+    product.newProperty = true;
+    console.log(product.newProperty);
+
+    // we can delete a object/property just by using "delete" keyword :-
+    delete product.newProperty;
+    console.log(product);
+
+
+    // there's another way to access or to create a property rather than Dot notation, which is bracket notation.
+
+    const product2 =  {
+      name : 'shirt',
+      ['delivery-time'] : '1 day'
+    };
+
+    console.log(product2);
+    console.log(product2['delivery-time']);
+
+    /* so what's the difference, well in bracket notation you can use dash "-" on property name, and in the case of Dot notation it's not
+    possibe, it'll get you an error.
+    simply, Bracket notation lets us use properties that don't work with dot notation. 
+    Another features: 
+    * you can use a variable instead of just a name inside [' '].
+    * and you can also use calculation like:
+      product2['delivery' + 'time'].*/
+  
+      /* which one should we use ?
+      -use dot notation by default 
+      -for properties that don't work, use bracket notation */
+  
+  
+  
+      const product3 =  {
+      name : 'shirt',
+      'delivery-time' : '1 day',
+
+      rating: {               //we can also create an object inside an object for organization, which is called Nested object.
+        stars: 4.5,
+        count: 87
+      },
+
+      addition: function sum()      // we can also create an function inside a object which is called a Method. There's more about method in C++ book. And function is also a value. 
+      {
+        console.log( 3 + 4);
+      }
+    };
+  
+    // just a showcase of accessing the inner object.
+    console.log(product3.rating.stars);
+
+    // just a showcase of accessing the function. and console.log() is also a function created inside the "console" object by Js.
+    // so "console.log()" and "Math.random()" is just two Methods.
+    product3.addition();
+
+
+
+    /* so "console.log()" is a Built-in Object by Js and there's two more:
+
+    * JSON
+    * localStorage
+    
+    
+
+      JSON(javaScript Object Notation):
+      so it's a syntax similar to JS Object but with less features.
+      so we can also create a Object using JSON, but you can't include any methods/functions
+      and all property and strings should be in double quotes ("").
+      JSON won't support single quotes('').
+      So why should we use JSON instead of normal JS Object ?
+      1) coz JS Object only make sense in JS.
+      2) but JSON can be understood almost by all programming languages.
+      So JSON is more Universal.
+      And JSON is more useful when we send data b/w computers which might use different programming languages.
+      And we also use JSON when we store data.
+
+
+      So there's a built-in JSON object which will help us
+      to convert JS object to JSON and vice versa.
+    */
+
+    // to convert from JS to JSON:
+    JSON.stringify(product3);   // remember JSON.stringify() is a built-in JSON method inside the object, it's not a JSON. And that's why we can use a function/method in here.
+
+    console.log(JSON.stringify(product3));
+
+    const heh = JSON.stringify(product3);
+
+    // to convert from JSON to JS:
+    JSON.parse(heh);
+    
+    console.log(JSON.parse(heh));
+
+
+
+    /*
+    Local storage:
+    it's the secondary storage in our computer. Local storage help us to
+    save values more permanently. The variables are temporary, the values
+    will get lost when we refresh the page.
+
+    to save values:
+    localStorage.setItem('name', 'value');      this is the syntax. 
+    
+    And remember localStorage only support strings.
+
+    to get back the value:
+    localStorage.getItem('name');
+    */
+
+
+    // More info: 
+
+    /*
+    Auto-Boxing:
+    values can also have properties and methods. Like string, numbers etc...
+
+    const a = 'hello'.length;       //this is a property.
+    console.log(a);
+
+    so what happens here is that Js will automatically wraps the string value 'hello' into a special object which is called Auto-Boxing, and the object will've a 
+    nbr of properties which will help us to do something on the string value. I'd like to think this properties as functions coz it's doing a function.
+    Another one is :-
+
+    const b = 'hello'.toUpperCase();    //this is a method.
+    console.log(b);
+    */
+
+
+
+  
+  </script>
+</body>
+</html>

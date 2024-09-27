@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom</title>
+</head>
+<body>
+  <button>hello</button>
+
+
+
+
+  <script>
+    /*
+    DOM(Document Object Model): 
+
+    DOM is a Built-in object in JS. so it's a document object.
+    The document object represents / models the webpage, which means
+    every property or methods inside the document object is related/linked to 
+    the webpage. so we can manipulate the website using document object.
+    so the DOM is directly linked to the object.
+    */
+
+
+    // document.body.innerHTML = "hello";       to replace the entire webpage with the given value.
+
+    document.title = "good job";      //to replace the title of the webpage.
+
+    // console.log(document.body);    so this indicate we can access the HTML from JS.
+
+    /*
+     So the DOM combines JS and HTML together, and we can control HTML using JS.
+    */
+
+    console.log(document.body.innerHTML);   // so this gives us all the HTML inside the body.
+
+    // we can also add HTML elements instead of just a text :
+
+    document.body.innerHTML = '<button>hehehehe </button>';
+
+
+
+    console.log(document.querySelector('button'));    // this method  is used to select any HTML element in the page.
+
+    /*
+     so remember any HTML element inside the DOM is an JS object. 
+     'console.log(document.querySelector('button'));' so this 'button' element is also an object, and for an object we can use properties
+     and methods. so this 'button' and all other HTML element inside the DOM will've properties and object, coz it's an object now and not an HTML element anymore. 
+    */
+
+    console.log(document.querySelector('button').innerHTML);   //this property will access the HTML elements inside 'button' element.
+
+    document.querySelector('button').innerHTML='changed!';  // this'll replace the element inside the 'button' by 'changed'.
+
+
+    /*
+      we can also target a HTML element specificly using a class.
+      By giving a class to an HTML element we can target it inside 'querySelector()'.
+
+      <button class="js-button"> second </button>
+
+      <script> 
+        document.querySelector('.js-button');
+      <\script>
+
+
+      *And we can also save the HTML element into a variable.
+    */
+
+
+    /*
+      window :-
+      it's an built-in JS object. "window" means the browser, so whatever we see it is in the "window"/browser.
+      document is the webpage, and the webpage is inside the browser/"window".
+      so, we can access the document from window :
+      
+    */
+  
+    window.document.querySelector();
+
+    // the console is inside the browser/"window", so we can access the console from window:
+
+    window.console.log('hello');
+
+    // the pop-up is inside the browser/"window", so we can access the alert() from window:
+
+    window.alert('hei');
+
+    // but we don't use window on the front of them and still works, why. coz JS will automatically adds it for us.
+
+  </script>
+</body>
+</html>

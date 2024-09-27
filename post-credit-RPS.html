@@ -1,0 +1,55 @@
+<!-- UPDATION: Including Local Storage instead of variables.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rock-paper-scissors</title>
+  <link rel="stylesheet" href="./styles/post-credit-RPS.css">
+</head>
+<body>
+
+  <p class="title">Rock Paper Scissors</p>
+
+
+
+  <button class="moves js-rock">
+    <img src="./RPS images/rock-emoji.png">
+  </button>
+
+  <button class="moves js-paper">
+    <img src="./RPS images/paper-emoji.png">
+  </button>
+
+  <button class="moves js-scissor">
+    <img src="./RPS images/scissor-emoji.png">
+  </button>
+
+
+
+
+  <p class="js-result result"></p>
+  
+  <p class="js-picks picks"></p>
+    
+  <p class="js-score score"></p>
+
+
+
+  <button class="btns" onclick="
+    resetScore('reset');
+  ">
+    Reset Score
+  </button>
+
+  <button class="btns" onclick="
+    autoPlay();
+  ">
+    Auto Play</button>
+
+  
+
+
+  <script src="./scripts/post-credit-RPS.js"></script>
+</body>
+</html> 

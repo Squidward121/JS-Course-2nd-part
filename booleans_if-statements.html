@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>booleans</title>
+<style>
+ 
+</style>
+</head>
+<body bgcolor="d">
+  
+
+  <script>
+    // boolean values:
+    true;
+    false;
+
+    console.log(5 === '5');
+    console.log(3 > 5 - 5);
+  /* it's better to use 5 === 5 (triple equal to) rather than 5 == 5 (double equal to),
+  coz double equal to converts both operands to same data type which is not good in some situations.
+  And triple equal to will always keep the operands data type original which is always good coz we want accurate answers always.
+  
+  * And it's the same in not equal to :  !==   instead of !=   .
+  
+  * comparison operators have the lower priority than math operators.
+  
+  * logical operator have less priority than both comparison and math operators.*/
+
+
+  if (true) 
+  {
+    console.log('helllooooooooooooo');
+  }
+
+  /* if the given condition inside the bracket is true or the keyword 'true', the given code below will run.
+  and if the given condition inside the bracket is false or the keyword 'false', the given code below will not run. */
+
+  // now let's write a code to check someone is old enough to drive :
+
+  let age = 24;
+  if ( age >= 18 )
+  {
+    console.log('you are legally allowed to drive');
+  }
+  else
+  {
+    console.log('you are legally not allowed to drive');
+  }
+
+
+  /*
+  falsy values:
+  
+  * false
+  * 0
+  * ' '
+  * NaN   (Not a Number)
+  * undefined
+  * null
+  
+  
+  truthy values: 
+  
+  Any values that aren't false values is truthy values
+  
+  
+  you can use falsy and truthy values for if statements, logical, comparisonal or any conditions instead of true value and false value....
+  it works as shortcuts
+  */
+
+  
+  /*
+  shortcuts for if-statements:
+
+  1) ternary operator ?:
+    true ? 'truthy' : 'falsy';
+
+    true = condition
+    'truthy' = code to be executed if the condition is true.
+    'falsy' = code to be executed if the condition is false.
+
+    And we can save the result directly to a variable like :-
+    
+    let result = true ? 'truthy' : 'falsy';
+    
+    this will store the code or value to be executed if the condition is true or false directly to result.
+
+
+
+  2) guard operator &&
+    
+    false && console.log('hello');
+    The compiler will stop early coz && oparator need both sides to be true, so it's not mandotary to check the other condition.
+
+    this is a shortcut for this :
+    if(condition) 
+    {
+      console.log('hello');
+    }
+
+  3) defualt operator ||
+    
+    it's the same as guard operator, but starts with truthy.
+    truth || console.log('hello');
+
+    this is a shortcut for : 
+    
+    let currency;
+
+    if (!condition) 
+    {
+      currency = 'USD';
+    }
+  */
+
+
+
+
+
+  </script>
+</body>
+</html>

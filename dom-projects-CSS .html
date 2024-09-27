@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM-Projects</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    .subscribe-btn {
+      border: none;
+      background-color: black;
+      color: white;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-bottom: 40px;
+    }
+
+    .is-subscribed{
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+
+    .cost-input{
+      font-size: 16px;
+      padding: 10px;
+      
+    }
+
+    .js-output {
+      margin-bottom: 150px;
+    }
+
+    .calc-button {
+      background-color: green;
+      color: white;
+      padding: 12px 15px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+
+  <p>YouTube Subscribe Button</p>
+
+  <button class="js-subscribe subscribe-btn" 
+    onclick="Subscription();">
+    subscribe
+  </button>
+
+
+
+  <p>Amazon Shipping Calculator</p>
+
+  <input class="js-amount cost-input" placeholder="Cost of Order" onkeydown="
+    let key = event.key;  // 'event' is a built-in Object by JS, it'll have all the info about the happened event including the key we pressed. so we gonna use this technique to get the key when the user presses.
+
+    keyCheck(key);
+  ">
+
+  <button class="calc-button" onclick="
+    Calculatoin();
+  ">Calculate</button>
+
+  <p class="js-output"></p>
+
+
+  <!-- 
+    clicks, keydowns are events.
+    onclick, onkeydown are event listeners.
+
+    event listeners check for any events, and they run JS codes if any events are happened.
+
+    There are more Event Listeners :- 
+      
+      onclick       = click
+      onkeydown     = key press
+      onscroll      = scrolling
+      onmouseenter  = hovering over
+      onmouseleave  = stop hovering over
+      and more........
+
+
+      every event listener can use the 'event' object.
+   -->
+  
+
+  <a href="./Final-RPS.html" >Click here to see the Rock Paper Scissor game</a>
+
+
+  <script>
+
+    // for youtube subscribe button:
+    function Subscription()
+    {
+      const js_button = document.querySelector('.js-subscribe');
+
+      if(js_button.innerText === 'subscribe')
+      {
+        document.querySelector('.js-subscribe').innerHTML = 'subscribed';
+        document.querySelector('.js-subscribe').classList.add('is-subscribed');
+
+        /*
+        classList is an object for HTML elements and it have some properties and methods. In here we use "classList.add()" to add a class when the text changes to "subscribed"(literally means when we click it) for styling.
+        This is a way to change the styles using JS.
+        so the class "is-subscribed" will only be availabe for the button when we click it.
+        */
+      }
+      else
+      {
+        document.querySelector('.js-subscribe').innerHTML = 'subscribe';
+        document.querySelector('.js-subscribe').classList.remove('is-subscribed');
+
+        // classList.remove() is used to remove any classes in css.
+      }
+    }
+
+
+
+    function Calculatoin()
+    {
+      let cost = document.querySelector('.js-amount').value;
+
+      /*
+        ".value" is a new property of the HTML element, and it'll help us to get whatever the user inserted into the textbox inside "<input>".
+        ".value" will only work with "<input>" ig.
+        but the value will always return the text in string format, so we're gonna have to transform the value from string format to number format.
+        
+        And there's a built-in function, Number(). This will transform any kind of datatype into number datatype.
+
+        "String()" this will transform any kind of datatype into string datatype.
+      */
+
+      if(cost < 40)
+      {
+        cost = Number(cost) + 10;
+      }
+
+      document.querySelector('.js-output').innerHTML = `Total Cost = $${cost}`;
+      
+    }
+
+
+    function keyCheck(key)
+    {
+      if(key === 'Enter')
+      {
+        Calculatoin();
+      }
+    }
+
+    
+  </script>
+</body>
+</html>
